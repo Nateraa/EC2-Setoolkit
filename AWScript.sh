@@ -67,28 +67,28 @@ echo "/_/   \_\_/\_/  |____/|___/\___|_|  |_| .__/ \__|"
 echo "                                      |_|        "
 echo "   By Puenteuropa"
 echo ""
-start_spinner '--| Actualizando el sistema |--'
+start_spinner '--| [STEP 1] - Updating System |--'
 apt update -y &>/dev/null
 stop_spinner $?
 
-start_spinner '--| Instalando dependencias necesarias |--'
+start_spinner '--| [STEP 2] - Updating |--'
 apt install git python pip -y &>/dev/null
 stop_spinner $?
 
-start_spinner '--| Descargando SetoolKit del repositorio oficial |--'
+start_spinner '--| [STEP 3] - Downloading Setoolkit |--'
 git clone https://github.com/trustedsec/social-engineer-toolkit &>/dev/null
 cd social-engineer-toolkit/ &>/dev/null
 stop_spinner $?
 
-start_spinner '--| Instalando los requerimientos necesarios para el instalador de SetoolKit |--'
+start_spinner '--| [STEP 4] - Installing necessary dependencies (1/3) |--'
 pip3 install -r requirements.txt &>/dev/null
 stop_spinner $?
 
-start_spinner '--| Instalando dependencias necesarias para SetoolKit |--'
+start_spinner '--| [STEP 5] - Installing necessary dependencies (2/3) |--'
 python3 setup.py &>/dev/null
 stop_spinner $?
 
-start_spinner '--| Instalando dependencias necesarias del SetoolKit |--'
+start_spinner '--| [STEP 6] - Installing necessary dependencies (3/3) |--'
 pip3 install -r requirements.txt &>/dev/null
 stop_spinner $?
 
